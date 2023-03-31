@@ -2,7 +2,7 @@ package com.example.TheaterManager.models.entities;
 
 import com.example.TheaterManager.models.BaseEntity;
 import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,7 +19,7 @@ public class TicketOffice extends BaseEntity {
 
     private String address;
 
-    @OneToMany
+    @ManyToMany
     private Set<WorkDay> workDays;
 
 
