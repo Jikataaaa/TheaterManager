@@ -1,11 +1,15 @@
 package com.example.TheaterManager.service;
 import com.example.TheaterManager.models.view.PerformanceView;
 
+import java.util.List;
+
 public interface PerformanceService {
 
-    void createPerformance(PerformanceView performanceView);
+    PerformanceView createPerformance(PerformanceView performanceView);
 
-    void addTicketOfficeToPerformance(Long id, Long PerformanceId);
+    PerformanceView addTicketOfficeToPerformance(Long id, Long PerformanceId);
 
-    void editPerformance(PerformanceView performanceView);
+    PerformanceView editPerformance(PerformanceView performanceView);
+
+    List<PerformanceView> findAllPerformances();
 }

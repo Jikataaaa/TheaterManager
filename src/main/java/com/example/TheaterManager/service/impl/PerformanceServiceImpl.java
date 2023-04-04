@@ -11,6 +11,8 @@ import com.example.TheaterManager.service.TicketOfficeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PerformanceServiceImpl implements PerformanceService {
@@ -22,25 +24,45 @@ public class PerformanceServiceImpl implements PerformanceService {
 
 
     @Override
-    public void createPerformance(PerformanceView performanceView) {
-        modifyPerformance(performanceView);
+    public PerformanceView createPerformance(PerformanceView performanceView) {
+       return modifyPerformance(performanceView);
     }
 
     @Override
-    public void addTicketOfficeToPerformance(Long ticketOfficeId, Long performanceId) {
+    public PerformanceView addTicketOfficeToPerformance(Long ticketOfficeId, Long performanceId) {
         TicketOffice ticketOffice = ticketOfficeService.findTicketOfficeById(ticketOfficeId);
         Performance performance = performanceRepository.findById(performanceId).orElseThrow();
         performance.getTicketOffices().add(ticketOffice);
-        performanceRepository.save(performance);
-
+        Performance save = performanceRepository.save(performance);
+        return PerformanceView
+                .builder()
+                .genre(save.getGenre())
+                .theaterName(save.getTheater().getName())
+                .description(save.getDescription())
+                .name(save.getName())
+                .startTime(save.getStartTime())
+                .build();
     }
 
     @Override
-    public void editPerformance(PerformanceView performanceView) {
-        modifyPerformance(performanceView);
+    public PerformanceView editPerformance(PerformanceView performanceView) {
+       return modifyPerformance(performanceView);
     }
 
-    private void modifyPerformance(PerformanceView view){
+    @Override
+    public List<PerformanceView> findAllPerformances() {
+        return performanceRepository.findAll().stream().map(performance -> PerformanceView
+                        .builder()
+                        .theaterName(performance.getTheater().getName())
+                        .startTime(performance.getStartTime())
+                        .name(performance.getName())
+                        .description(performance.getDescription())
+                        .genre(performance.getGenre())
+                        .build())
+                .toList();
+    }
+
+    private PerformanceView modifyPerformance(PerformanceView view){
         Theater theaterByName = theaterService.findTheaterByName(view.getTheaterName());
 
 
@@ -53,6 +75,16 @@ public class PerformanceServiceImpl implements PerformanceService {
                 .startTime(view.getStartTime())
                 .build();
 
-        performanceRepository.save(performance);
+
+        Performance save = performanceRepository.save(performance);
+
+        return PerformanceView
+                .builder()
+                .genre(save.getGenre())
+                .theaterName(save.getTheater().getName())
+                .description(save.getDescription())
+                .name(save.getName())
+                .startTime(save.getStartTime())
+                .build();
     }
 }

@@ -7,5 +7,5 @@ public interface TheaterService {
 
     Theater findTheaterByName(String name);
 
-    void createTheater(TheaterView view);
+    TheaterView createTheater(TheaterView view);
 }

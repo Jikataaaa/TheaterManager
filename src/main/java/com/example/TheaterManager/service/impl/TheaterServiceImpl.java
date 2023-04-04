@@ -22,7 +22,8 @@ public class TheaterServiceImpl implements TheaterService {
     }
 
     @Override
-    public void createTheater(TheaterView view) {
-        theaterRepository.save(mapper.map(view, Theater.class));
+    public TheaterView createTheater(TheaterView view) {
+        Theater save = theaterRepository.save(mapper.map(view, Theater.class));
+        return mapper.map(save, TheaterView.class);
     }
 }
