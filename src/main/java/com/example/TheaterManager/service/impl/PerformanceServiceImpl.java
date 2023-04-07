@@ -51,7 +51,7 @@ public class PerformanceServiceImpl implements PerformanceService {
 
     @Override
     public List<PerformanceView> findAllPerformances() {
-        return performanceRepository.findAll().stream().map(performance -> PerformanceView
+        return performanceRepository.findAllByStartTime().stream().map(performance -> PerformanceView
                         .builder()
                         .theaterName(performance.getTheater().getName())
                         .startTime(performance.getStartTime())
