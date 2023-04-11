@@ -23,8 +23,14 @@ nav{
     background-color: #930e0e;
     padding-left: 10%;
     padding-right: 10%;
+    display: flex;
+    
+    justify-content: space-between;
 }
-.nav{
+.auth-list{
+    display: flex;
+}
+.nav-list{
     display: flex;
     margin: 0;
     padding-top: 1%;

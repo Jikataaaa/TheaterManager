@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     CoreModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    UserModule
     
   ],
   providers: [],

@@ -2,6 +2,8 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
+import { LoginComponent } from "./user/login/login.component";
+import { RegisterComponent } from "./user/register/register.component";
 
 const routes: Routes = [
   {
@@ -12,8 +14,17 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    
   },
-  
+  {
+    path: 'user/login',
+    component: LoginComponent,
+    
+  },
+  {
+    path: 'user/register',
+    component: RegisterComponent,
+  },
   {
     path: '**',
     component: NotFoundComponent,

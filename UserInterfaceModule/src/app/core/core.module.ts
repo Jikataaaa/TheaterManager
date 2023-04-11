@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { RouterModule } from '@angular/router';
+import { AuthGuard } from './guards/AuthGuard';
 
 
 
@@ -14,6 +15,7 @@ import { RouterModule } from '@angular/router';
   ],
   
   imports: [CommonModule, AppRoutingModule, RouterModule],
+  providers: [AuthGuard],
   exports : [HeaderComponent, FooterComponent]
 })
 export class CoreModule { }
