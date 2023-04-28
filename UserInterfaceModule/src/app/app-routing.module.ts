@@ -1,7 +1,9 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { AuthGuard } from "./core/guards/AuthGuard";
 import { HomeComponent } from "./home/home.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
+import { PerformancesComponent } from "./performance/performances/performances.component";
 import { LoginComponent } from "./user/login/login.component";
 import { RegisterComponent } from "./user/register/register.component";
 
@@ -18,12 +20,19 @@ const routes: Routes = [
   },
   {
     path: 'user/login',
-    component: LoginComponent,
+    component: LoginComponent
     
   },
   {
     path: 'user/register',
     component: RegisterComponent,
+  },{
+    path: 'performance/performances',
+    component: PerformancesComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: "USER"
+    },
   },
   {
     path: '**',

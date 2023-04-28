@@ -22,7 +22,8 @@ export class AuthGuard{
     | Observable<boolean | UrlTree>
     | Promise<boolean | UrlTree> {
     const { role } = route.data;
-
+    const token = localStorage.getItem("token");
+    
     //checking the authentication
     this.userService.verifyAuthentication().then((response) => {
       if (response == 'false') {
@@ -32,7 +33,6 @@ export class AuthGuard{
     });
 
     //checking roleAccess
-    const token = localStorage.getItem('token');
     const username = localStorage.getItem('username');
     this.userService
       .getRoleAccess(token, username, role)

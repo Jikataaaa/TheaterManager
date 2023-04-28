@@ -8,9 +8,9 @@ import { PerformanceService } from '../services/performance/performance.service'
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+  panelOpenState = false;
   private performances! : Performance[];
-;
+
    constructor(private performanceService: PerformanceService){
   }
   async ngOnInit() {
