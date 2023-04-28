@@ -9,13 +9,12 @@ import { PerformanceService } from '../services/performance/performance.service'
 })
 export class HomeComponent implements OnInit {
   panelOpenState = false;
-  private performances! : Performance[];
+   performances! : Performance[];
 
    constructor(private performanceService: PerformanceService){
   }
   async ngOnInit() {
     await this.populatePerformances();
-    console.log(this.performances)
   }
 
   async populatePerformances(){

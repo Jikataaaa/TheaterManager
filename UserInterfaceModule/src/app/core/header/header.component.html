@@ -1,6 +1,25 @@
 <header>
-  <div class="top">Theater Manager</div>
-  <div class="nav-div">
+  <div class="wrapper">
+    <div routerLink="/home" class="top">Theater Manager</div>
+    <nav>
+      <ul>
+        <li routerLink="user/register" *ngIf="!isLoged">
+          Register
+        </li>
+        <li routerLink="user/login" *ngIf="!isLoged">
+          Login
+        </li>
+        <li *ngIf="isLoged">
+          <a (click)="logout()">Logout</a>
+        </li>
+        <li (click)="openAdminDialog()" *ngIf="isAdmin">
+          Admin
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- <div class="nav-div">
     <nav>
       <ul class="nav-list">
         <li>
@@ -22,5 +41,5 @@
           </li>
       </ul>
     </nav>
-  </div>
+  </div> -->
 </header>

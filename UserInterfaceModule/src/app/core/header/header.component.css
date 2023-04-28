@@ -1,49 +1,40 @@
-header{
-    background-color: #332a28;
-    color: #f9f0ec;
-    height: 15vh;
-    margin-bottom: 5px;
-    
+header {
+  background-color: #140102;
+  color: #ab8a8a;
+  height: 10%;
 }
-.top{
- height: 10vh;
- margin: auto;
- display: flex;
- align-items: center;
- font-size: 250%;
- padding-left: 10%;
- padding-right: 10%;
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10%;
+  margin-right: 10%;
+  height: 110%;
+  align-items: center;
 }
-.nav-div{
-    width: 100%;
+.top {
+  font-size: 200%;
 }
-nav{
-
-    background-color: #930e0e;
-    padding-left: 10%;
-    padding-right: 10%;
-    display: flex;
-    
-    justify-content: space-between;
-}
-.auth-list{
-    display: flex;
-}
-.nav-list{
-    display: flex;
-    padding-left: 0;
-}
-li{
+.top:hover {
+    cursor: pointer;
+  }
+ul {
     list-style: none;
+  display: flex;
 }
-a{
-    text-decoration: none;
-    color: white;
+ul li:first-child{
+    margin-right: 2vh;
 }
-a:hover{
-    text-decoration: underline;
-    color: purple;
+li{ 
+  cursor: pointer;
+    color: #140102;
+    border: 2px solid #ffcd38;
+    background-color: #ffcd38;
+    padding: 1vh;
+    border-radius: 1vh;
 }
-ul.auth-list li:first-child{
-    margin-right: 4vh;
+li:hover{
+  color:  #ffcd38;
+    background-color: #140102;
+    border: 2px solid #ffcd38;
+    
 }
