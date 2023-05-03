@@ -5,6 +5,7 @@ import { HomeComponent } from "./home/home.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { AddPerformanceComponent } from "./performance/add-performance/add-performance.component";
 import { PerformancesComponent } from "./performance/performances/performances.component";
+import { AddTheaterComponent } from "./theater/add-theater/add-theater.component";
 import { LoginComponent } from "./user/login/login.component";
 import { RegisterComponent } from "./user/register/register.component";
 
@@ -38,8 +39,14 @@ const routes: Routes = [
     data: {
       role: "USER"
     },
+  },{
+    path: 'theater/add-theater',
+    component: AddTheaterComponent,
+    canActivate: [AuthGuard],
+    data: {
+      role: "USER"
+    },
   },
-
   {
     path: '**',
     component: NotFoundComponent,

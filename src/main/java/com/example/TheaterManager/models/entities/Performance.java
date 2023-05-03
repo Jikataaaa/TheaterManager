@@ -22,7 +22,7 @@ public class Performance extends BaseEntity {
     private String genre;
     @Column(columnDefinition = "TEXT")
     private String description;
-    private Instant startTime;
+    private LocalDateTime startTime;
 
     @ManyToOne
     private Theater theater;

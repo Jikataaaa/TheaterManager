@@ -11,6 +11,8 @@
         </li>
         <li routerLink="performance/add-performance" *ngIf="isLoged">
           Add performance
+        </li> <li routerLink="theater/add-theater" *ngIf="isLoged">
+          Add Theater
         </li>
         <li *ngIf="isLoged">
           <a (click)="logout()">Logout</a>

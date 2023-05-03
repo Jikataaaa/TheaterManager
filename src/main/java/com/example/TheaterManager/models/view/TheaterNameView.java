@@ -5,12 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class TheaterView {
+@NoArgsConstructor
+@Data
+public class TheaterNameView {
     private String name;
-    private String address;
-    private int capacity;
 }

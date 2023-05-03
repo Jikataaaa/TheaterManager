@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Data
@@ -13,8 +14,7 @@ public class PerformanceView {
     private String name;
     private String description;
     private String genre;
-    private Instant startTime;
-    private LocalTime time;
+    private LocalDateTime time;
     private String theaterName;
 
 }

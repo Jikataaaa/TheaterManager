@@ -8,11 +8,8 @@ import com.example.TheaterManager.repository.PerformanceRepository;
 import com.example.TheaterManager.service.PerformanceService;
 import com.example.TheaterManager.service.TheaterService;
 import com.example.TheaterManager.service.TicketOfficeService;
-import com.example.TheaterManager.utils.DateUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
-import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -42,7 +39,7 @@ public class PerformanceServiceImpl implements PerformanceService {
                 .theaterName(save.getTheater().getName())
                 .description(save.getDescription())
                 .name(save.getName())
-                .startTime(save.getStartTime())
+                .time(save.getStartTime())
                 .build();
     }
 
@@ -56,7 +53,7 @@ public class PerformanceServiceImpl implements PerformanceService {
         return performanceRepository.findAllByStartTime().stream().map(performance -> PerformanceView
                         .builder()
                         .theaterName(performance.getTheater().getName())
-                        .startTime(performance.getStartTime())
+                        .time(performance.getStartTime())
                         .name(performance.getName())
                         .description(performance.getDescription())
                         .genre(performance.getGenre())
@@ -67,17 +64,13 @@ public class PerformanceServiceImpl implements PerformanceService {
     private PerformanceView modifyPerformance(PerformanceView view){
         Theater theaterByName = theaterService.findTheaterByName(view.getTheaterName());
 
-        Instant instant = DateUtil.parseInstant(view.getStartTime());
-        instant = DateUtil.changeTimeOfInstant(instant, view.getTime());
-
-
         Performance performance = Performance
                 .builder()
                 .description(view.getDescription())
                 .genre(view.getGenre())
                 .name(view.getName())
                 .theater(theaterByName)
-                .startTime(instant)
+                .startTime(view.getTime())
                 .build();
 
 
@@ -89,7 +82,7 @@ public class PerformanceServiceImpl implements PerformanceService {
                 .theaterName(save.getTheater().getName())
                 .description(save.getDescription())
                 .name(save.getName())
-                .startTime(save.getStartTime())
+                .time(save.getStartTime())
                 .build();
     }
 }

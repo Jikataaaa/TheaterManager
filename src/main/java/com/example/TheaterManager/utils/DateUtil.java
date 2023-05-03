@@ -3,9 +3,10 @@ package com.example.TheaterManager.utils;
 import java.time.*;
 
 public class DateUtil {
+
+    private static final ZoneId ZONE_ID = ZoneId.of("Europe/Sofia");
     public static Instant parseInstant(Instant time){
-    ZoneId zone = ZoneId.of("Europe/Sofia");
-    ZonedDateTime zonedDateTime = time.atZone(zone);
+    ZonedDateTime zonedDateTime = time.atZone(ZONE_ID);
     LocalDateTime localDateTime = zonedDateTime.toLocalDateTime();
     long timeInSeconds = localDateTime.toEpochSecond(ZoneOffset.UTC);
     return Instant.ofEpochSecond(timeInSeconds);

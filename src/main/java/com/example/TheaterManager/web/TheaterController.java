@@ -1,24 +1,29 @@
 package com.example.TheaterManager.web;
 
+import com.example.TheaterManager.models.view.TheaterNameView;
 import com.example.TheaterManager.models.view.TheaterView;
 import com.example.TheaterManager.service.TheaterService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping
+@RequestMapping("/theater")
 public class TheaterController {
 
     private final TheaterService theaterService;
 
-    @PostMapping()
+    @PostMapping("/add-theater")
     public ResponseEntity<TheaterView> createTheater(@RequestBody TheaterView view){
        return ResponseEntity.ok(theaterService.createTheater(view));
+    }
+
+    @GetMapping("/all-theaters")
+    public ResponseEntity<List<TheaterNameView>> getTheatersName(){
+        return ResponseEntity.ok(theaterService.getTheaterNames());
     }
 
 }

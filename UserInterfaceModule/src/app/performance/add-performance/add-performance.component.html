@@ -7,16 +7,17 @@
     cols="30"
     rows="3"
   ></textarea>
-  <input class="field" formControlName="theaterName" type="text" />
-  
-  <mat-form-field (click)="picker.open()"  class="example-full-width" appearance="fill">
-    <mat-label>Choose a date</mat-label>
-    <input formControlName="startTime" matInput [matDatepicker]="picker" />
-    <mat-hint>MM/DD/YYYY</mat-hint>
-    <mat-datepicker #picker></mat-datepicker>
+  <mat-form-field appearance="fill">
+    <mat-label>Theater</mat-label>
+    <mat-select  formControlName="theaterName">
+      <mat-option *ngFor="let theater of theaters" [value]="theater.name">
+        {{theater.name}}
+      </mat-option>
+    </mat-select>
   </mat-form-field>
+  
 
-  <label for="time">time</label>
-  <input type="time" formControlName="time" />
+  <label for="dateTime">time</label>
+  <input type="datetime-local" formControlName="time"   />
   <input class="submit-btn" type="submit" />
 </form>
