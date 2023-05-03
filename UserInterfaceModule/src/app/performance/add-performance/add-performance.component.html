@@ -1,0 +1,22 @@
+<form  (ngSubmit)="addPerformance()" [formGroup]="performanceForm">
+  <input class="field" formControlName="name" type="text" />
+  <input class="field" formControlName="genre" type="text" />
+  <textarea
+    class="field"
+    formControlName="description"
+    cols="30"
+    rows="3"
+  ></textarea>
+  <input class="field" formControlName="theaterName" type="text" />
+  
+  <mat-form-field (click)="picker.open()"  class="example-full-width" appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input formControlName="startTime" matInput [matDatepicker]="picker" />
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <label for="time">time</label>
+  <input type="time" formControlName="time" />
+  <input class="submit-btn" type="submit" />
+</form>

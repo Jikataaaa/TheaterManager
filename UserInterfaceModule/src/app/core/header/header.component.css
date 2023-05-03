@@ -21,16 +21,17 @@ ul {
     list-style: none;
   display: flex;
 }
-ul li:first-child{
+ul li:not(:last-child){
     margin-right: 2vh;
 }
-li{ 
-  cursor: pointer;
+ li{ 
+    cursor: pointer;
     color: #140102;
     border: 2px solid #ffcd38;
     background-color: #ffcd38;
     padding: 1vh;
     border-radius: 1vh;
+    text-decoration: none;
 }
 li:hover{
   color:  #ffcd38;

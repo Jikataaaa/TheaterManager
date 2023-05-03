@@ -9,6 +9,9 @@
         <li routerLink="user/login" *ngIf="!isLoged">
           Login
         </li>
+        <li routerLink="performance/add-performance" *ngIf="isLoged">
+          Add performance
+        </li>
         <li *ngIf="isLoged">
           <a (click)="logout()">Logout</a>
         </li>
@@ -18,28 +21,4 @@
       </ul>
     </nav>
   </div>
-
-  <!-- <div class="nav-div">
-    <nav>
-      <ul class="nav-list">
-        <li>
-          <a routerLink="/home">Home</a>
-        </li>
-      </ul>
-      <ul class="auth-list">
-        <li *ngIf="!isLoged">
-          <a routerLink="user/register">Register</a>
-        </li>
-        <li *ngIf="!isLoged">
-          <a routerLink="user/login">Login</a>
-        </li>
-        <li *ngIf="isLoged">
-            <a >Hello, {{username}}</a>
-          </li>
-        <li *ngIf="isLoged">
-            <a (click)="logout()">Logout</a>
-          </li>
-      </ul>
-    </nav>
-  </div> -->
 </header>

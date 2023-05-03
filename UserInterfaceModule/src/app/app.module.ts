@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { PerformanceModule } from './performance/performance.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { MaterialModule } from './material/material.module';
     AppRoutingModule,
     HttpClientModule,
     UserModule,
+    PerformanceModule,
     BrowserAnimationsModule,
     MaterialModule
     

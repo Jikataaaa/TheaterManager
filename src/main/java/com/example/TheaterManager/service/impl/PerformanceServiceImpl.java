@@ -8,9 +8,11 @@ import com.example.TheaterManager.repository.PerformanceRepository;
 import com.example.TheaterManager.service.PerformanceService;
 import com.example.TheaterManager.service.TheaterService;
 import com.example.TheaterManager.service.TicketOfficeService;
+import com.example.TheaterManager.utils.DateUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.List;
 
 @Service
@@ -65,6 +67,9 @@ public class PerformanceServiceImpl implements PerformanceService {
     private PerformanceView modifyPerformance(PerformanceView view){
         Theater theaterByName = theaterService.findTheaterByName(view.getTheaterName());
 
+        Instant instant = DateUtil.parseInstant(view.getStartTime());
+        instant = DateUtil.changeTimeOfInstant(instant, view.getTime());
+
 
         Performance performance = Performance
                 .builder()
@@ -72,7 +77,7 @@ public class PerformanceServiceImpl implements PerformanceService {
                 .genre(view.getGenre())
                 .name(view.getName())
                 .theater(theaterByName)
-                .startTime(view.getStartTime())
+                .startTime(instant)
                 .build();
 
 

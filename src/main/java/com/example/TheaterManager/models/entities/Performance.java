@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -21,7 +22,7 @@ public class Performance extends BaseEntity {
     private String genre;
     @Column(columnDefinition = "TEXT")
     private String description;
-    private LocalDateTime startTime;
+    private Instant startTime;
 
     @ManyToOne
     private Theater theater;
