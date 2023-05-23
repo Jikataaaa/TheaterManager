@@ -5,6 +5,7 @@ import com.example.TheaterManager.models.view.TheaterNameView;
 import com.example.TheaterManager.models.view.TheaterView;
 import com.example.TheaterManager.repository.TheaterRepository;
 import com.example.TheaterManager.service.TheaterService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,7 @@ public class TheaterServiceImpl implements TheaterService {
     }
 
     @Override
+    @Transactional
     public TheaterView createTheater(TheaterView view) {
         Theater save = theaterRepository.save(mapper.map(view, Theater.class));
         return mapper.map(save, TheaterView.class);

@@ -23,6 +23,8 @@ public class Performance extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private String description;
     private LocalDateTime startTime;
+    @Lob
+    private byte[] image;
 
     @ManyToOne
     private Theater theater;

@@ -8,6 +8,7 @@ import com.example.TheaterManager.repository.PerformanceRepository;
 import com.example.TheaterManager.service.PerformanceService;
 import com.example.TheaterManager.service.TheaterService;
 import com.example.TheaterManager.service.TicketOfficeService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
@@ -23,11 +24,13 @@ public class PerformanceServiceImpl implements PerformanceService {
 
 
     @Override
+    @Transactional
     public PerformanceView createPerformance(PerformanceView performanceView) {
        return modifyPerformance(performanceView);
     }
 
     @Override
+    @Transactional
     public PerformanceView addTicketOfficeToPerformance(Long ticketOfficeId, Long performanceId) {
         TicketOffice ticketOffice = ticketOfficeService.findTicketOfficeById(ticketOfficeId);
         Performance performance = performanceRepository.findById(performanceId).orElseThrow();
@@ -44,6 +47,7 @@ public class PerformanceServiceImpl implements PerformanceService {
     }
 
     @Override
+    @Transactional
     public PerformanceView editPerformance(PerformanceView performanceView) {
        return modifyPerformance(performanceView);
     }
